@@ -1,6 +1,7 @@
 import BasicCard from "./components/BasicCard";
 import { useEffect, useState } from "react";
 import "./index.css";
+import ImgAlt from "./image/kawaiicat.png"
 
 export default function App() {
     const [data, setData] = useState([]);
@@ -40,7 +41,7 @@ export default function App() {
             alt={article.alt}
             date={article.created_at}
             description={article.description}
-            imgPath={article.cover_image}
+            imgPath={article.cover_image || {ImgAlt}}
             link="Read more"
             title={article.title}
             url={article.url}

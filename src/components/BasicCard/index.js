@@ -1,5 +1,6 @@
 import "./basic-card.css";
 
+
 function BasicCard(props) {
     return (
         <div className="basic-card" id={props.id}>
