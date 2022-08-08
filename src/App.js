@@ -8,6 +8,8 @@ export default function App() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
+    
+    useEffect(() => {
     let url = "https://dev.to/api/articles";
 
     function getArticles() {
@@ -31,7 +33,6 @@ export default function App() {
             });
     }
 
-    useEffect(() => {
         getArticles();
     }, []);
 
