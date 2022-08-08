@@ -1,7 +1,7 @@
 import BasicCard from "./components/BasicCard";
 import { useEffect, useState } from "react";
 import "./index.css";
-import ImgAlt from "./image/kawaiicat.png"
+import { Triangle } from "react-loader-spinner";
 
 export default function App() {
     const [data, setData] = useState([]);
@@ -41,7 +41,7 @@ export default function App() {
             alt={article.alt}
             date={article.created_at}
             description={article.description}
-            imgPath={article.cover_image || {ImgAlt}}
+            imgPath={article.cover_image }
             link="Read more"
             title={article.title}
             url={article.url}
@@ -58,6 +58,15 @@ export default function App() {
     } else if (error) {
         return <div>There is a problem fetching the post data - {error}</div>;
     } else {
-        return "Loading...";
+        return (
+            <div className="load">
+                <Triangle
+                    height="500"
+                    width="500"
+                    radius="9"
+                    color="coral"
+                />
+            </div>
+        );
     }
 }
