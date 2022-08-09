@@ -3,14 +3,19 @@ import { useEffect, useState } from "react";
 import "./index.css";
 import { Triangle } from "react-loader-spinner";
 
+
+
+
 export default function App() {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
+    let [inputValue, setInputValue] = useState("");
+    let [information, setInformation] = useState("");
     
     useEffect(() => {
-    let url = "https://dev.to/api/articles";
+    let url = `https://dev.to/api/articles?tag=${inputValue}`;
 
     function getArticles() {
         fetch(url)
@@ -34,7 +39,7 @@ export default function App() {
     }
 
         getArticles();
-    }, []);
+    }, [inputValue]);
 
     const articlesArray = data?.map((article) => (
         <BasicCard
@@ -49,10 +54,34 @@ export default function App() {
         />
     ));
 
+      
+
+      
+        function handleSubmit(event) {
+          event.preventDefault();
+          setInputValue(event.target[0].value);
+          console.log(inputValue, event)
+          console.log("dentro do submit");
+          if (event.target[0].value) {
+            setInformation(`Find all about ${event.target[0].value}`);
+          } else {
+            setInformation("Please search for an article topic");
+          }
+        }
+
     if (!loading && !error) {
         return (
             <div className="App">
                 <h1>Articles</h1>
+    <div>
+      <form onSubmit={handleSubmit}>
+        <input type="search"  />
+        <button type="submit">Search</button>
+      </form>
+      {inputValue && <h3>Search for {inputValue}</h3>}
+      <h4>{information}</h4>
+    </div>
+ 
                 <div className="articles">{data && articlesArray}</div>
             </div>
         );
