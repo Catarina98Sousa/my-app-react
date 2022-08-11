@@ -1,5 +1,6 @@
 import useLocalStorage from "use-local-storage";
 import "./index.css";
+import { NavLink } from "react-router-dom";
 
 
 
@@ -18,8 +19,11 @@ export default function Header() {
     }
   
     return (
+        
       <div className="Header" data-theme={theme}>
         <header className="header" >
+        <NavLink to="/">Home</NavLink>
+        <NavLink to="/About">About</NavLink>
           <button className="button button--small" onClick={switchTheme}>
              {theme === "light" ? " 🌙" : "🌞"} Theme
           </button>

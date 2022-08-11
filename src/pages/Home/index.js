@@ -1,53 +1,9 @@
-/* import { useState } from "react";
-
-
-function Search() {
-  let [inputValue, setInputValue] = useState("");
-  let [information, setInformation] = useState("");
-
-  function updateInputValue(event) {
-    console.log(event.target.value);
-    setInputValue(event.target.value);
-  }
-
-  function handleSubmit(event) {
-    event.preventDefault();
-    console.log("dentro do submit");
-    if (inputValue) {
-      setInformation(`Find all about ${inputValue}`);
-    } else {
-      setInformation("Please search for an article topic");
-    }
-  }
-
-  return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <input type="search" onChange={updateInputValue} />
-        <button type="submit">Search</button>
-      </form>
-      <h3>Search for {inputValue}</h3>
-      <h4>{information}</h4>
-    </div>
-  );
-}
-
-export default Search;
- */
-
-//-------------------- search numa  api --------------
-
-
-
- import BasicCard from "./components/BasicCard";
+import BasicCard from "../../components/BasicCard";
 import { useEffect, useState } from "react";
-import "./index.css";
 import { Triangle } from "react-loader-spinner";
 
 
-
-
-export default function App() {
+function Home () {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
     const[url, setUrl] = useState("https://dev.to/api/articles"); //quando fizer refresh voltar ao inicio 
@@ -60,6 +16,7 @@ export default function App() {
     //template literals string com uma variavel
 
     function getArticles() {
+        setLoading(true)
         fetch(url)  
             .then((response) => response.json())
             .then((articles) => {
@@ -106,6 +63,7 @@ export default function App() {
     if(!loading)
      return (
             <div className="App">
+
                 <h1>Articles</h1>
     <div>
       <form onSubmit={handleSubmit}>
@@ -131,3 +89,5 @@ export default function App() {
             );
         }
 } 
+
+export default Home
