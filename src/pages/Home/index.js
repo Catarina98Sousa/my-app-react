@@ -1,6 +1,8 @@
 import BasicCard from "../../components/BasicCard";
 import { useEffect, useState } from "react";
 import { Triangle } from "react-loader-spinner";
+  import  "../../components/Banner/banner.css";
+  
 
 
 function Home () {
@@ -32,7 +34,7 @@ function Home () {
     }
 
         getArticles();
-    }, [url]);//é o watch constante daquilo que acontece no inputvalue 
+    }, [url, information]);//é o watch constante daquilo que acontece no inputvalue 
     //sem isto só corre uma vez !!!IMPORTANTE
 
     function handleSubmit(event) {
@@ -59,22 +61,25 @@ function Home () {
             url={article.url}
         />
     ));
-
+  
+    
+    
     if(!loading)
      return (
-            <div className="App">
-
-                <h1>Articles</h1>
-    <div>
+            <div className="App" >
+                
+            <div className="banner">    
+            <h1>Articles</h1>   
+        <span role="img" ></span>
       <form onSubmit={handleSubmit}>
-        <input type="search" />
-        <button type="submit">Search</button>
+        <input type="search" className="search--bar"/>
+        <button type="submit" className="button button--small">Search</button>
       </form>
-      <h3>Search for {inputValue}</h3>
+      {inputValue && <h3>Search for {inputValue}</h3>}
       <h4>{information}</h4>
-    </div>
+    
                 <div className="articles">{data && articlesArray}</div>
-            </div>
+            </div></div>
         );
         else {
             return (

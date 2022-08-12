@@ -1,7 +1,7 @@
 .basic-card {
     display: flex;
     flex-direction: column;
-    background-color: white;
+    background-color: var(--background);
     border-radius: 8px;
     border: 1px solid gray;
     max-width: 370px;
@@ -22,7 +22,7 @@
 .basic-card__body span {
     display: block;
     font-size: 12px;
-    color: black;
+    color: var(--text-primary);
     margin-bottom: 10px;
 }
 
@@ -36,3 +36,4 @@
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
 }
+

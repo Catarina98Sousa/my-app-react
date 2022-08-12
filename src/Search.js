@@ -37,7 +37,7 @@ export default Search;
 
 //-------------------- search numa  api --------------
 
-
+/* 
 
  import BasicCard from "./components/BasicCard";
 import { useEffect, useState } from "react";
@@ -130,4 +130,4 @@ export default function App() {
                 </div>
             );
         }
-} 
+}  */

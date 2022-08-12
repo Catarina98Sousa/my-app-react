@@ -4,10 +4,11 @@
     --button-color: #f8679e;
   }
   [data-theme="dark"] {
-    --background: black;
+    --background: rgb(22, 22, 22);
     --text-primary: white;
-    --button-color: rgb(146, 34, 77);
+    --button-color: #92224d;
   }
+
   body {
     font-family: sans-serif;
     background-color: var(--background);
@@ -24,8 +25,11 @@ code {
 }
 
 .App {
+    background-color: var(--background);
     font-family: sans-serif;
     text-align: center;
+
+
 }
 
 .articles {
@@ -41,7 +45,18 @@ code {
  transform: translate(-50%, -50%);
 }
 
-
+a{
+    text-decoration: none;
+    color:#92224d;
+    font-weight: 700;
+    padding: 10px;
+    border: 2px solid var(--button-color);
+    border-radius: 5px;
+}
+a:hover {
+    background-color: var(--button-color);
+    color: var(--text-primary);
+  }
   
   .header {
     width: 100%;
@@ -54,9 +69,9 @@ code {
   
   .button {
     display: inline-block;
-    padding: 15px 25px;
-    margin-left: 10px;
-    margin-right: 10px;
+    padding: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
     background-color: var(--button-color);
     color: var(--text-primary);
     width: max-content;
@@ -74,6 +89,16 @@ code {
   }
   
   .button--small {
-    font-size: 12px;
+    font-size: 20px;
     padding: 5px;
   }
+
+.search--bar{
+    border: 2px solid ;
+    border-radius: 10px;
+    padding: 4px;
+    max-width: 300px;
+    width: 100%;
+    margin-right: 10px;
+    outline: 3px solid #f8679e;
+}
