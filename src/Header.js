@@ -1,7 +1,6 @@
 import useLocalStorage from "use-local-storage";
 import "./index.css";
 import { NavLink } from "react-router-dom";
-import Home from "./pages/Home/index";
 
 
 
@@ -29,7 +28,7 @@ export default function Header() {
              {theme === "light" ? " 🌙" : "🌞"} Theme
           </button>
         </header>
-        <Home/>
+        
         </div>
         );
 }
